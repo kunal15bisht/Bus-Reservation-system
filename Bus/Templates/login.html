@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<div class="login-container">
+    <div class="form-header">
+        <h1>Welcome Back</h1>
+    </div>
+    
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        
+        <button type="submit" class="submit-btn">Log In</button>
+        
+        {% if error_mssg %}
+        <div class="error-message">{{ error_mssg }}</div>
+        {% endif %}
+    </form>
+    
+    <div class="register-link">
+        Don't have an account? <a href="{% url 'register' %}">Register</a>
+    </div>
+</div>
+{% endblock %}
