@@ -94,17 +94,14 @@ main {
     font-size: 18px;
     color: black;
     font-weight: bold;
-    float: right;
 }
-
-.bus-container .book-button {
-    display: inline-block;
+.book-button {
+    text-align: center;
     background-color: #007BFF;
     color: white;
-    padding: 10px 15px;
+    padding: 5px 30px; 
     text-decoration: none;
     border-radius: 4px;
-    margin-top: 10px;
 }
 
 .bus-container .book-button:hover {
