@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'image/bus_logo.png' %}" alt="My Image">
+        <p>Bus Reservation System</p>
+        <nav>
+            <a href="{% url 'dashboard' %}">Home</a>
+            <a href="">My Booking</a>
+            <a href="">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <div class="search_main">
+            <form action="/dashboard/search/" method="POST">
+                {% csrf_token %}
+            <div class="search_box">
+                <p class="search-heading">Book Your Bus and get Your Ticket.</p>
+                
+                    <div class="search-container">
+                        <div class="column">
+                            <p class="subtext">From</p>
+                            <input type="text" id="from", name="from" placeholder="Delhi, Delhi">
+                            <p class="subtext">India</p>
+                        </div>
+                        <div class="column">
+                            <p class="subtext">To</p>
+                            <input type="text" id="to", name="to" placeholder="Haridwar, Uttarakhand">
+                            <p class="subtext">India</p>
+                        </div>
+                        <div class="column">
+                            <p class="subtext">Travel Date</p>
+                            <input type="date" id="date", name="date">
+                        </div>
+                    </div>
+                
+            </div>
+            <button type="submit" class="submit-btn">Search</button>
+        </form>
+    </div>
+
+    {% if error_mssg %}
+        <div class="error-message">{{ error_mssg }}</div>
+    {% endif %}
+
+    {% for data in bus %}
+    {% if data.bus_status == 'Active' %}
+        <div class="bus-container">
+            <div class="first">
+                <p class="bus-name">{{data.bus_name}}</p>
+                <p class="bus-name">{{data.bus_number}}</p>
+                <p class="bus-details">Total Available: {{data.available_seats}}</p>
+            </div>
+            <div class="mid">
+                <p class="bus-details">{{data.source}} to {{data.destination}}</p>
+                <p class="bus-details">{{data.departure_date}}</p>
+            </div>
+            <div class="second">
+                <p class="price">₹ {{data.price}}</p>
+                <p class="seats-info">{{data.available_seats}} Seats Left</p>
+                <a class="book-button" href="/book/{{data.id}}">Book</a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </main>
+
+    <footer>
+            <p>&copy; 2025 Bus Reservation System. All rights reserved.</p>
+    </footer>
+    <script src="{% static 'js/dashboard.js' %}"></script>
+</body>
+</html>
