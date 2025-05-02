@@ -205,3 +205,12 @@ input {
     left: 45%; 
     bottom: -25px; 
 }
+
+.error-message {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    color: #0a223d;
+    margin: 10px 0;
+    padding: 10px;
+}

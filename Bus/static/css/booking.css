@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    font-family: "Poppins";
+}
+/*Header*/
+header {
+    background-color: #0a223d;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img{
+    width: 50px;
+}
+
+header p {
+    font-size: 24px;
+    margin: 0;
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+/*Main*/
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.main_container{
+    display: flex;
+    flex-direction: row;
+}
+
+.left, .right {
+    flex: 1; /* Equal width for both columns */
+    min-width: 300px; /* Minimum width for responsiveness */
+    padding: 0 6px;
+}
+
+form p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+form input[readonly] {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.amount{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    justify-content:center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 0 ;
+}
+
+.amount p{
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+    margin-right: 10px;
+    
+}
+.amount input{
+    width:70%;
+}
+
+.btn {
+    background: linear-gradient(to right, #5ab0ff, #0066ff);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    margin-top: 20px;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, #4a9fef, #0056b3);
+}
+
+/*Footer*/
+footer {
+    background-color: #f5f5f5;
+    color: #555;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    width: 100%;
+    padding: 9px 0;
+    margin-top: auto; /* Push footer to bottom */
+}

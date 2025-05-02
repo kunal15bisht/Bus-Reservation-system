@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bus Reservation</title>
+        <link rel="stylesheet" href="{% static 'css/booking.css' %}">
+    </head>
+<body>
+    <header>
+        <img src="{% static 'image/bus_logo.png' %}" alt="My Image">
+        <p>Bus Reservation System</p>
+        <nav>
+            <a href="{% url 'dashboard' %}">Home</a>
+            <a href="">My Booking</a>
+            <a href="">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <form action="/pay/" method="POST">
+            {% csrf_token %}
+            <h1>Book Your Ticket Here.</h1>
+            <!--------main div----------->
+            <div class="main_container">
+                <!---------left---------->
+                <div class="left">
+                    <div>
+                        <p>User Name</p>
+                        <input type="text" id="user" name="user" value="{{user.username}}" readonly>
+                    </div>
+
+                    <div>
+                        <p>Bus Name</p>
+                        <input type="text" id="bus_name" name="bus_name" value="{{ bus.bus_name|escape }}" readonly>
+                    </div>
+
+                    <div>
+                        <p>From</p>
+                        <input type="text" id="from" name="from" value="{{ bus.source|escape }}" readonly>
+                    </div>
+
+                    <div>
+                        <p>Departure Date</p>
+                        <input type="date" id="date" name="date" value="{{ bus.departure_date|date:'Y-m-d' }}" readonly>
+                    </div>
+                    <div>
+                        <p>Per Persion:</p>
+                        <input type="text" id="price" name="price" value="{{ bus.price}}" readonly>
+                    </div>
+
+                    
+
+                </div>
+                
+                <!-- -------------right -->
+                <div class="right">
+                    <div>
+                        <p>Email</p>
+                        <input type="email" id="email" name="email" value="{{user.email}}" readonly>
+                    </div>
+
+                    <div>
+                        <p>Bus Number</p>
+                        <input type="text" id="bus_number" name="bus_number" value="{{ bus.bus_number|escape }}" readonly>
+                    </div>
+
+                    <div>
+                        <p>To</p>
+                        <input type="text" id="to" name="to" value="{{ bus.destination|escape }}" readonly>
+                    </div>
+
+                    <div>
+                        <p>Departure Time</p>
+                        <input type="text" id="time" name="time" value="{{ bus.departure_time|time:'g:i A' }}" readonly>
+                    </div>
+
+                    <div>
+                        <p>No. of Persons</p>
+                        <input type="text" id="No_of_person" name="No_of_person" placeholder="0">
+                    </div>
+                    
+
+                </div>                                   
+            </div>
+            <div class="amount">
+                <p>Total Amount:</p>
+                <input type="text" id="amount" name="amount" placeholder="00.00">
+            </div>
+            <button type="submit" class="btn">Pay</button>
+        </form>
+        
+    </main>
+    <footer>
+            <p>&copy; 2025 Bus Reservation System. All rights reserved.</p>
+    </footer>
+    <script src="{% static 'js/book.js' %}"></script>
+    <!-- <script>s
+         // Trigger calculation on keyup event
+        document.getElementById("No_of_person").addEventListener("keyup", calculateAmount);
+
+            function calculateAmount() {
+            const price = parseFloat(document.getElementById("price").value) || 0;
+            const numberOfPersons = parseInt(document.getElementById("No_of_person").value) || 0;
+
+            const totalAmount = price * numberOfPersons;
+            document.getElementById("amount").value = totalAmount.toFixed(2); // show 2 decimal places
+        }
+    </script> -->
+</body>
+</html>
