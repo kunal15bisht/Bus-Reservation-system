@@ -105,11 +105,11 @@ main>p{
     color: black;
     font-weight: bold;
 }
-.book-button {
+.cancel-button {
     text-align: center;
     background-color: #007BFF;
     color: white;
-    padding: 5px 30px; 
+    padding: 5px 22px; 
     text-decoration: none;
     border-radius: 4px;
 }

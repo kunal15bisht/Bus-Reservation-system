@@ -102,13 +102,23 @@ def pay(request):
             No_of_person=request.POST.get('No_of_person'),
             total_amount=request.POST.get('amount')
         )
-        return redirect('mybooking')  # Replace with your actual success URL or page
+        return redirect('dashboard')  # Replace with your actual success URL or page
 
     return redirect('booking')
 
 def mybooking(request):
-    bus = models.Reservation.objects.all()
+    email = request.session['email']
+    bus = models.Reservation.objects.filter(email = email)
     if bus:
         return render(request,"mybooking.html",{"bus":bus})
     error_mssg = "No Data"
     return render(request, "mybooking.html", {"error_mssg": error_mssg})
+
+def delete(request, id):
+    data =models.Reservation.objects.get(id=id)
+    if data:
+        data.delete()
+        return redirect('mybooking')
+    error_mssg = "No Data"
+    return render(request, "mybooking.html", {"error_mssg": error_mssg})
+    

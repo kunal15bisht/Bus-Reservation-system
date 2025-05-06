@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mybooking.css' %}">
 </head>
 <body>
     <header>
@@ -18,6 +18,7 @@
         </nav>
     </header>
     <main>
+        <p>My Booking</p>
     {% if error_mssg %}
         <div class="error-message">{{ error_mssg }}</div>
     {% endif %}
@@ -28,6 +29,7 @@
             <div class="first">
                 <p class="bus-name">{{data.bus_name}}</p>
                 <p class="bus-name">{{data.bus_number}}</p>
+                <p class="bus-name">Booked</p>
             </div>
             <div class="mid">
                 <p class="bus-details">{{data.source}} to {{data.destination}}</p>
@@ -37,7 +39,7 @@
             <div class="second">
                 <p class="price">{{data.No_of_person}} Persons</p>
                 <p class="price">₹ {{data.total_amount}}</p>
-                <a class="book-button">Booked</a>
+                <a class="cancel-button" href="/mybooking/delete/{{data.id}}">Cancel</a>
             </div>
         </div>
         {% endif %}
@@ -47,6 +49,5 @@
     <footer>
             <p>&copy; 2025 Bus Reservation System. All rights reserved.</p>
     </footer>
-    <script src="{% static 'js/dashboard.js' %}"></script>
 </body>
 </html>
