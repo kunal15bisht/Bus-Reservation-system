@@ -6,12 +6,8 @@
     border-radius: 12px;
     box-shadow: var(--card-shadow);
     padding: 25px;
-    transition: transform 0.3s ease;
 }
 
-.register-container:hover {
-    transform: translateY(-5px);
-}
 
 .form-header {
     text-align: center;
@@ -57,10 +53,10 @@ font-size: 13px;
     box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
 }
 
-.form-group.error input {
+/* .form-group.error input {
     border-color: var(--error-color);
     box-shadow: 0 0 0 3px rgba(239, 71, 111, 0.15);
-}
+} */
 
 .form-text {
     font-size: 12px;

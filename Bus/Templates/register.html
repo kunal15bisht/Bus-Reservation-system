@@ -9,35 +9,91 @@
         <p>Sign up to book your bus tickets quickly and easily.</p>
     </div>
     
-    <form method="POST">
+    <form method="POST" id="registrationForm" novalidate>
         {% csrf_token %}
         
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" name="username" id="username" required autocomplete="username">
+            <input type="text" name="username" id="username" required autocomplete="username" minlength="3" maxlength="20">
+            <p class="error-text" id="username-error"></p>
         </div>
         
         <div class="form-group">
             <label for="email">Email Address</label>
             <input type="email" id="email" name="email" required autocomplete="email">
             <p class="form-text">We'll never share your email with anyone else.</p>
+            <p class="error-text" id="email-error"></p>
         </div>
         
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required autocomplete="new-password">
+            <input type="password" id="password" name="password" required autocomplete="new-password" minlength="8">
+            <p class="error-text" id="password-error"></p>
+        </div>
+        
+        <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required autocomplete="new-password">
+            <p class="error-text" id="confirm-password-error"></p>
+        </div>
+        
+        <div class="password-requirements">
+            <p>Password must contain:</p>
+            <ul>
+                <li id="length-check">At least 8 characters</li>
+                <li id="uppercase-check">At least one uppercase letter</li>
+                <li id="lowercase-check">At least one lowercase letter</li>
+                <li id="number-check">At least one number</li>
+                <li id="special-check">At least one special character</li>
+            </ul>
         </div>
         
         <button type="submit" class="submit-btn">Register</button>
         
         {% if error_mssg %}
             <div class="error-message">{{ error_mssg }}</div>
-            {% endif %}
-
+        {% endif %}
     </form>
     
     <div class="login-link">
         Already have an account? <a href="{% url 'login' %}">Log in</a>
     </div>
 </div>
+
+<style>
+    .error-text {
+        color: #ff0000;
+        font-size: 0.85rem;
+        margin-top: 5px;
+    }
+    
+    input.invalid {
+        border-color: #ff0000;
+    }
+    
+    .password-requirements {
+        margin: 10px 0 20px;
+        font-size: 0.9rem;
+    }
+    
+    .password-requirements ul {
+        padding-left: 20px;
+        margin-top: 5px;
+    }
+    
+    .password-requirements li {
+        margin-bottom: 3px;
+        color: #6c757d;
+    }
+    
+    .password-requirements li.valid {
+        color: #28a745;
+    }
+    
+    .password-requirements li.valid::before {
+        content: "✓ ";
+    }
+</style>
+
+<script src="{% static 'js/register.js' %}"></script>
 {% endblock %}
