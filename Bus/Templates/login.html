@@ -8,28 +8,45 @@
         <h1>Welcome Back</h1>
     </div>
     
-    <form method="POST">
+    <form method="POST" id="loginForm" onsubmit="return validateForm()">
         {% csrf_token %}
         
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" required>
+            <input type="email" name="email" id="email" >
+            <span class="error-text" id="email-error"></span>
         </div>
         
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" >
+            <span class="error-text" id="password-error"></span>
         </div>
         
         <button type="submit" class="submit-btn">Log In</button>
         
-        {% if error_mssg %}
+        <!-- {% if error_mssg %}
         <div class="error-message">{{ error_mssg }}</div>
-        {% endif %}
+        {% endif %} -->
     </form>
     
     <div class="register-link">
         Don't have an account? <a href="{% url 'register' %}">Register</a>
     </div>
 </div>
+
+<style>
+    .error-text {
+        color: #e74c3c;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        display: block;
+    }
+    
+    input:invalid {
+        border-color: #e74c3c;
+    }
+</style>
+
+<script src="{% static 'js/login.js' %}"></script>
 {% endblock %}
