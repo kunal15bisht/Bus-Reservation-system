@@ -51,9 +51,7 @@ main {
     width: 100%;
 }
 
-
-/*---------error-mssg---------*/
-.error-message {
+main>p{
     font-size: 30px;
     font-weight: 700;
     text-align: center;
@@ -61,7 +59,6 @@ main {
     margin: 10px 0;
     padding: 10px;
 }
-
 
 /*---------Bus detail---------*/
 .bus-container {
@@ -138,3 +135,13 @@ footer {
 }
 
 
+/*----------------search--------------------------*/
+
+.error-message {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    color: #0a223d;
+    margin: 10px 0;
+    padding: 10px;
+}

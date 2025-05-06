@@ -48,7 +48,7 @@ header img{
 }
 
 body {
-    background-color: var(--background);
+background-color: var(--background);
     color: var(--text-color);
     display: flex;
     flex-direction: column;
