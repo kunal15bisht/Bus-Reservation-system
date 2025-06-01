@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Bus.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'F:\Django\Bus-Reservation-system\Bus\Templates'],
+        'DIRS': [r'E:\django\Bus-Reservation-system\Bus\Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
