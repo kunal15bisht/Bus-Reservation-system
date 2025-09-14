@@ -51,7 +51,7 @@ def search(request):
         "error_mssg": ""
     }
 
-    if request.method == "POST":
+    if request.method == "GET":
         source = request.POST.get('from', '').strip().upper()
         destination = request.POST.get('to', '').strip().upper()
         departure_date = request.POST.get('date', '').strip()
